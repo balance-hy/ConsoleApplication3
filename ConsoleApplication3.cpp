@@ -23,6 +23,8 @@ int main() {
 		free(intervals[i]);
 	}
 	free(intervals);
+
+	printf("hello");
 	return 0;
 
 }
