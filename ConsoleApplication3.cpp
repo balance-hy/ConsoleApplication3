@@ -1,31 +1,28 @@
 ﻿#include<stdio.h>
 #include <stdlib.h>
 int main() {
-	
-	int rows, cols, i, j;
-	scanf("%d %d", &rows, &cols);
-	int** intervals = (int**)malloc(rows * sizeof(int*));
-	for (i = 0; i < rows; i++) {
-		intervals[i] = (int*)malloc(cols * sizeof(int));
-	}
-	for (i = 0; i < rows; i++) {
-		for (j = 0; j < cols; j++) {
-			scanf("%d", &intervals[i][j]);
+	int a[6] = { 0,1,2,3,4,5 },i,n;
+	scanf("%d", &n);
+	int low = 0;
+	int high = 5;
+	int mid = (low + high) / 2;
+	while(low<=high){
+		int mid = (low + high) / 2;
+		if (a[mid] == n) {
+			printf("find it\n");
+			printf("%d\n",mid);
+			break;
+		}
+		else if (a[mid]<n) {
+			low = mid + 1;
+		}
+		else {
+			high = mid - 1;
 		}
 	}
-	for (i = 0; i < rows; i++) {
-		for (j = 0; j < cols; j++) {
-			printf("%d ", intervals[i][j]);
-		}
-		printf("\n");
+	if (low > high) {
+		printf("wrong!\n");
 	}
-	for (i = 0; i < rows; i++) {
-		free(intervals[i]);
-	}
-	free(intervals);
-
-	printf("hello");
 	return 0;
-	//test1
 }
 
